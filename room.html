@@ -1,0 +1,366 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Our Rooms | ÉLAN Resort</title>
+
+  <meta
+    name="description"
+    content="Discover the Classic Retreat, Serenity Double, and Élan Suite at ÉLAN Resort. Find your perfect stay and book your room."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="room.css">
+
+  <script src="room.js" defer></script>
+</head>
+
+<body class="room-page">
+
+  <!-- HEADER -->
+  <header class="room-header" id="roomHeader">
+    <a href="index.html" class="room-brand" aria-label="ÉLAN Resort home">
+      <span class="room-brand-name">ÉLAN</span>
+      <span class="room-brand-subtitle">RESORT &amp; RETREAT</span>
+    </a>
+
+    <button
+      class="room-menu-toggle"
+      id="roomMenuToggle"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-controls="roomNavigation"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="room-navigation" id="roomNavigation" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="room.html" class="active" aria-current="page">Our Rooms</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="#contact">Contact</a>
+
+      <a href="booking.html" class="room-mobile-book">
+        Book Your Stay
+      </a>
+    </nav>
+
+    <a href="booking.html" class="room-header-cta">
+      Book Your Stay
+      <span aria-hidden="true">↗</span>
+    </a>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="rooms-hero">
+      <div class="rooms-hero-overlay"></div>
+
+      <div class="rooms-hero-content">
+        <span class="rooms-eyebrow">YOUR PRIVATE ESCAPE</span>
+
+        <h1>
+          Stay Somewhere
+          <em>Exceptional.</em>
+        </h1>
+
+        <p>
+          Thoughtfully designed spaces, peaceful surroundings, and
+          understated luxury. Discover the room that feels like yours.
+        </p>
+
+        <a href="#allRooms" class="rooms-hero-button">
+          Explore Our Rooms
+          <span aria-hidden="true">↓</span>
+        </a>
+      </div>
+
+      <div class="rooms-hero-caption">
+        <span>COMFORT</span>
+        <span class="caption-divider"></span>
+        <span>PRIVACY</span>
+        <span class="caption-divider"></span>
+        <span>EXCEPTIONAL HOSPITALITY</span>
+      </div>
+    </section>
+
+    <!-- INTRODUCTION -->
+    <section class="rooms-introduction" id="allRooms">
+      <div class="rooms-intro-label">
+        <span class="rooms-section-number">01</span>
+        <span>THE COLLECTION</span>
+      </div>
+
+      <div class="rooms-intro-content">
+        <h2>
+          A room for every
+          <em>kind of escape.</em>
+        </h2>
+
+        <p>
+          Whether you're planning a quiet retreat, a memorable stay for
+          two, or a more indulgent experience, our rooms are designed
+          to make every moment feel special.
+        </p>
+      </div>
+    </section>
+
+    <!-- ROOM COLLECTION -->
+    <section class="rooms-collection" aria-label="Available room types">
+
+      <!-- CLASSIC RETREAT -->
+      <article class="room-card" id="classic-retreat">
+        <div class="room-card-image">
+          <img
+            src="images/room1.jpg"
+            alt="Classic Retreat guest room"
+            loading="lazy"
+          >
+
+          <span class="room-image-number">01 / 03</span>
+
+          <span class="room-image-tag">TIMELESS COMFORT</span>
+        </div>
+
+        <div class="room-card-content">
+          <div class="room-card-topline">
+            <span class="room-category">THE CLASSIC COLLECTION</span>
+            <span class="room-capacity">
+              <span aria-hidden="true">♙</span> 1–2 Guests
+            </span>
+          </div>
+
+          <h3>Classic Retreat</h3>
+
+          <p class="room-description">
+            A welcoming sanctuary for restful nights and unhurried
+            mornings. Simple elegance and thoughtful comfort make this
+            room ideal for a peaceful getaway.
+          </p>
+
+          <div class="room-features">
+            <span>Comfortable Bed</span>
+            <span>Private Bathroom</span>
+            <span>Relaxing Ambience</span>
+          </div>
+
+          <div class="room-card-bottom">
+            <div class="room-price">
+              <span class="room-price-label">Starting from</span>
+              <p><strong>KSh 4,500</strong><span> / night</span></p>
+            </div>
+
+            <a
+              class="room-book-button"
+              href="booking.html?room=Classic%20Retreat"
+              data-room="Classic Retreat"
+            >
+              Book This Room
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- SERENITY DOUBLE -->
+      <article class="room-card" id="serenity-double">
+        <div class="room-card-image">
+          <img
+            src="images/room2.jpg"
+            alt="Serenity Double guest room"
+            loading="lazy"
+          >
+
+          <span class="room-image-number">02 / 03</span>
+
+          <span class="room-image-tag">MADE FOR TWO</span>
+        </div>
+
+        <div class="room-card-content">
+          <div class="room-card-topline">
+            <span class="room-category">THE SERENITY COLLECTION</span>
+            <span class="room-capacity">
+              <span aria-hidden="true">♙</span> 2 Guests
+            </span>
+          </div>
+
+          <h3>Serenity Double</h3>
+
+          <p class="room-description">
+            Unwind in a more spacious setting designed for shared
+            moments. An inviting choice for couples or guests who
+            appreciate a little extra room to relax.
+          </p>
+
+          <div class="room-features">
+            <span>Double Bed</span>
+            <span>Private Bathroom</span>
+            <span>Spacious Interior</span>
+          </div>
+
+          <div class="room-card-bottom">
+            <div class="room-price">
+              <span class="room-price-label">Starting from</span>
+              <p><strong>KSh 7,500</strong><span> / night</span></p>
+            </div>
+
+            <a
+              class="room-book-button"
+              href="booking.html?room=Serenity%20Double"
+              data-room="Serenity Double"
+            >
+              Book This Room
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ELAN SUITE -->
+      <article class="room-card room-card-featured" id="elan-suite">
+        <div class="room-card-image">
+          <img
+            src="images/suiteroom.jpg"
+            alt="The Élan Suite guest room"
+            loading="lazy"
+          >
+
+          <span class="room-image-number">03 / 03</span>
+
+          <span class="room-image-tag">THE SIGNATURE STAY</span>
+        </div>
+
+        <div class="room-card-content">
+          <div class="room-card-topline">
+            <span class="room-category">THE SIGNATURE COLLECTION</span>
+            <span class="room-capacity">
+              <span aria-hidden="true">♙</span> 1–2 Guests
+            </span>
+          </div>
+
+          <h3>The Élan Suite</h3>
+
+          <p class="room-description">
+            Experience a more indulgent escape in our signature room.
+            Created for guests seeking an elevated atmosphere, added
+            comfort, and a stay worth remembering.
+          </p>
+
+          <div class="room-features">
+            <span>Premium Interior</span>
+            <span>Private Bathroom</span>
+            <span>Signature Comfort</span>
+          </div>
+
+          <div class="room-card-bottom">
+            <div class="room-price">
+              <span class="room-price-label">Starting from</span>
+              <p><strong>KSh 12,000</strong><span> / night</span></p>
+            </div>
+
+            <a
+              class="room-book-button"
+              href="booking.html?room=The%20%C3%89lan%20Suite"
+              data-room="The Élan Suite"
+            >
+              Book This Room
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- CLOSING BANNER -->
+    <section class="rooms-closing">
+      <div class="rooms-closing-content">
+        <span class="rooms-eyebrow">YOUR NEXT CHAPTER BEGINS HERE</span>
+
+        <h2>
+          Make room for
+          <em>something beautiful.</em>
+        </h2>
+
+        <p>
+          Your time away deserves to feel different. Let us help you
+          plan a stay that feels just right.
+        </p>
+
+        <a href="booking.html" class="rooms-closing-button">
+          Plan Your Stay
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="room-footer" id="contact">
+    <div class="room-footer-main">
+      <div class="room-footer-brand">
+        <a href="index.html" class="room-brand">
+          <span class="room-brand-name">ÉLAN</span>
+          <span class="room-brand-subtitle">RESORT &amp; RETREAT</span>
+        </a>
+
+        <p>
+          A quieter kind of luxury. A more meaningful kind of escape.
+        </p>
+      </div>
+
+      <div class="room-footer-column">
+        <h4>Explore</h4>
+        <a href="index.html">Home</a>
+        <a href="room.html">Our Rooms</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="booking.html">Reservations</a>
+      </div>
+
+      <div class="room-footer-column">
+        <h4>Get in Touch</h4>
+
+        <a
+          href="https://wa.me/254795692365?text=Hello%20%C3%89LAN%20Resort!%20I%20would%20like%20to%20enquire%20about%20a%20room."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          WhatsApp Us ↗
+        </a>
+
+        <a href="tel:+254795692365">+254 795 692 365</a>
+      </div>
+    </div>
+
+    <div class="room-footer-bottom">
+      <p>© <span id="roomYear"></span> ÉLAN Resort. All rights reserved.</p>
+      <p>CRAFTED FOR YOUR COMFORT.</p>
+    </div>
+  </footer>
+
+  <a
+    class="room-whatsapp-float"
+    href="https://wa.me/254795692365?text=Hello%20%C3%89LAN%20Resort!%20I%20would%20like%20to%20enquire%20about%20a%20room."
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Contact ÉLAN Resort on WhatsApp"
+  >
+    <span aria-hidden="true">✆</span>
+  </a>
+
+</body>
+</html>

@@ -1,0 +1,1796 @@
+
+/* =========================================
+   ÉLAN RESORT — LUXURY DESIGN SYSTEM
+   Fixed Navbar + Centered Hero + Working Mobile Menu
+========================================= */
+
+/* 1. DESIGN VARIABLES */
+
+:root {
+  --ink: #172321;
+  --ink-soft: #263631;
+  --ivory: #F8F6F0;
+  --white: #FFFFFF;
+  --gold: #C6A46A;
+  --gold-light: #E4D0A5;
+  --muted: #777D75;
+  --line: #E5E0D5;
+  --serif: "Playfair Display", Georgia, serif;
+  --sans: "DM Sans", Arial, sans-serif;
+  --page-width: 1380px;
+  --header-height: 100px;
+}
+
+/* 2. RESET AND GLOBAL STYLES */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 110px;
+}
+
+body {
+  padding-top: var(--header-height);
+  background: var(--ivory);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
+::selection {
+  background: var(--gold-light);
+  color: var(--ink);
+}
+
+.container {
+  width: min(100% - 64px, var(--page-width));
+  margin-inline: auto;
+}
+
+.section-padding {
+  padding: 120px max(7%, calc((100% - var(--page-width)) / 2));
+}
+
+/* 3. TYPOGRAPHY */
+
+h1,
+h2,
+h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+h1 {
+  font-size: clamp(3.5rem, 7.5vw, 7.4rem);
+  letter-spacing: -0.055em;
+}
+
+h2 {
+  font-size: clamp(2.5rem, 4.8vw, 4.8rem);
+  letter-spacing: -0.04em;
+}
+
+h3 {
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
+}
+
+h1 em,
+h2 em {
+  font-weight: 400;
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.light-eyebrow {
+  color: var(--gold-light);
+}
+
+.light-eyebrow span {
+  display: inline-block;
+  width: 25px;
+  height: 1px;
+  margin: 0 10px 3px 0;
+  background: var(--gold-light);
+}
+
+.body-copy {
+  max-width: 490px;
+  color: var(--muted);
+  line-height: 2;
+}
+
+/* 4. HEADER AND NAVIGATION */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: var(--header-height);
+  padding: 18px 7%;
+
+  background: var(--ivory);
+  border-bottom: 1px solid rgba(23, 35, 33, 0.07);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.brand {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: var(--serif);
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: -0.06em;
+  line-height: 1;
+}
+
+.brand > span {
+  display: inline;
+  color: var(--gold);
+}
+
+.brand small {
+  margin-top: 7px;
+  font-family: var(--sans);
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 3vw, 43px);
+}
+
+.main-nav > a {
+  position: relative;
+  font-size: 12px;
+  font-weight: 500;
+  transition: color 0.25s ease;
+}
+
+.main-nav > a:not(.nav-book)::after {
+  position: absolute;
+  right: 0;
+  bottom: -7px;
+  left: 0;
+  height: 1px;
+  background: var(--gold);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.main-nav > a:hover,
+.main-nav > a.active {
+  color: #967641;
+}
+
+.main-nav > a:hover::after,
+.main-nav > a.active::after {
+  transform: scaleX(1);
+}
+
+.main-nav .nav-book {
+  padding: 14px 18px;
+  background: var(--ink);
+  color: var(--white);
+  transition: background 0.25s ease;
+}
+
+.nav-book span {
+  margin-left: 10px;
+  color: var(--gold-light);
+}
+
+.main-nav .nav-book:hover {
+  background: var(--ink-soft);
+}
+
+.menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid var(--line);
+  background: transparent;
+  position: relative;
+  z-index: 1002;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 19px;
+  height: 1px;
+  background: var(--ink);
+  transition: transform 0.25s ease;
+}
+
+.menu-toggle[aria-expanded="true"] span:first-child {
+  transform: translateY(3.5px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] span:last-child {
+  transform: translateY(-3.5px) rotate(-45deg);
+}
+
+/* 5. BUTTONS AND LINKS */
+
+.button {
+  display: inline-flex;
+  min-height: 54px;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  padding: 15px 23px;
+  border: 1px solid transparent;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button-gold {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+.button-gold:hover {
+  background: var(--gold-light);
+}
+
+.button-outline {
+  border-color: rgba(255, 255, 255, 0.5);
+  color: var(--white);
+}
+
+.button-outline:hover {
+  border-color: var(--gold-light);
+  background: var(--gold-light);
+  color: var(--ink);
+}
+
+.text-link {
+  color: var(--white);
+  font-size: 11px;
+}
+
+.text-link span {
+  margin-left: 9px;
+  color: var(--gold-light);
+}
+
+.underlined-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid var(--gold);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.underlined-link span {
+  color: #A5844D;
+  transition: transform 0.25s ease;
+}
+
+.underlined-link:hover span {
+  transform: translate(3px, -3px);
+}
+
+/* 6. HOMEPAGE HERO */
+
+.hero {
+  position: relative;
+  display: flex;
+  min-height: min(760px, 83vh);
+  min-height: min(760px, 83svh);
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--white);
+}
+
+.hero-image,
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-image {
+  background-image: url("images/image1.jpg");
+  background-position: center 52%;
+  background-size: cover;
+  animation: hero-reveal 1.3s ease both;
+}
+
+.hero-overlay {
+  background:
+    linear-gradient(90deg, rgba(12, 24, 21, 0.70), rgba(12, 24, 21, 0.38)),
+    linear-gradient(0deg, rgba(12, 24, 21, 0.38), transparent 40%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: 100%;
+  max-width: 1000px;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  padding: 60px 30px;
+  text-align: center;
+  animation: content-reveal 0.9s 0.15s ease both;
+}
+
+.hero h1 {
+  max-width: 900px;
+  margin-bottom: 25px;
+}
+
+.hero h1 em {
+  color: var(--gold-light);
+}
+
+.hero-description {
+  max-width: 520px;
+  margin: 0 auto 34px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+  line-height: 2;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+}
+
+.hero-bottom {
+  position: absolute;
+  right: 7%;
+  bottom: 30px;
+  left: 7%;
+  display: flex;
+  justify-content: space-between;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 9px;
+  letter-spacing: 0.17em;
+}
+
+.hero-vertical {
+  position: absolute;
+  top: 50%;
+  right: 27px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  writing-mode: vertical-rl;
+  transform: translateY(-50%);
+}
+
+/* 7. WELCOME SECTION */
+
+.welcome {
+  display: grid;
+  grid-template-columns: 0.7fr 1.1fr 1.2fr;
+  align-items: start;
+  gap: 50px;
+}
+
+.welcome-label {
+  padding-top: 9px;
+}
+
+.section-number {
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+}
+
+.welcome-content h2 {
+  margin-bottom: 27px;
+}
+
+.welcome-content h2 em {
+  color: #A58A5D;
+}
+
+.welcome-content .body-copy {
+  margin-bottom: 28px;
+}
+
+.welcome-image-wrap {
+  position: relative;
+  margin-top: 38px;
+}
+
+.welcome-image {
+  height: 410px;
+  object-fit: cover;
+}
+
+.image-caption {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 13px;
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+}
+
+/* 8. ROOM CARDS */
+
+.rooms-section {
+  background: #F0EEE7;
+}
+
+.section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 55px;
+}
+
+.section-heading h2 {
+  max-width: 700px;
+}
+
+.section-heading h2 em {
+  color: #A58A5D;
+}
+
+.section-heading > .underlined-link {
+  flex-shrink: 0;
+  margin-bottom: 9px;
+}
+
+.room-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.room-card {
+  min-width: 0;
+}
+
+.room-image-link {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: #D8D4CA;
+}
+
+.room-image-link img {
+  height: 350px;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.2, 0.65, 0.3, 1);
+}
+
+.room-image-link:hover img {
+  transform: scale(1.055);
+}
+
+.room-tag {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  padding: 8px 11px;
+  background: rgba(23, 35, 33, 0.85);
+  color: var(--white);
+  font-size: 8px;
+  letter-spacing: 0.15em;
+}
+
+.room-card-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding-top: 23px;
+}
+
+.room-card-info h3 {
+  margin-bottom: 7px;
+}
+
+.room-card-info p {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.room-card-info > a {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  place-items: center;
+  border: 1px solid var(--line);
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.room-card-info > a:hover {
+  background: var(--ink);
+  color: var(--white);
+}
+
+.room-price {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #DDD8CC;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.room-price strong {
+  margin-left: 5px;
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.room-price span {
+  font-size: 10px;
+}
+
+/* 9. EXPERIENCE SECTION */
+
+.experience-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--ink);
+  color: var(--white);
+}
+
+.experience-image {
+  min-height: 690px;
+  background-image: url("images/room4.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.experience-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 90px clamp(35px, 8vw, 120px);
+}
+
+.experience-content h2 {
+  margin-bottom: 23px;
+}
+
+.experience-content h2 em {
+  color: var(--gold-light);
+}
+
+.experience-content > p:not(.eyebrow) {
+  max-width: 430px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 2;
+}
+
+.experience-features {
+  width: 100%;
+  margin: 35px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.experience-features > div {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.experience-features span {
+  color: var(--gold-light);
+  font-size: 10px;
+}
+
+.experience-features p {
+  font-size: 12px;
+}
+
+/* 10. QUOTE SECTION */
+
+.quote-section {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.quote-section blockquote {
+  max-width: 930px;
+  margin: 0 auto;
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4.5vw, 4.2rem);
+  line-height: 1.4;
+}
+
+.quote-mark {
+  display: block;
+  margin-top: 30px;
+  color: var(--gold);
+  font-family: var(--serif);
+  font-size: 35px;
+}
+
+/* 11. BOOKING CALL TO ACTION */
+
+.booking-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 85px 10%;
+  background: #DAD4C5;
+}
+
+.booking-banner h2 {
+  max-width: 720px;
+  font-size: clamp(2.3rem, 4vw, 4rem);
+}
+
+.booking-banner h2 em {
+  color: #8C7043;
+}
+
+.booking-banner .eyebrow {
+  color: #80643A;
+}
+
+.booking-banner .button {
+  flex-shrink: 0;
+  background: var(--ink);
+  color: var(--white);
+}
+
+.booking-banner .button:hover {
+  background: var(--ink-soft);
+}
+
+/* 12. FOOTER */
+
+.site-footer {
+  padding: 65px 7% 25px;
+  background: #111C19;
+  color: var(--white);
+}
+
+.footer-main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 35px;
+  padding-bottom: 60px;
+}
+
+.footer-brand {
+  color: var(--white);
+}
+
+.footer-main > p {
+  color: rgba(255, 255, 255, 0.65);
+  font-family: var(--serif);
+  font-size: 23px;
+  line-height: 1.5;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 11px;
+  transition: color 0.25s ease;
+}
+
+.footer-links a:hover {
+  color: var(--gold-light);
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+}
+
+.footer-bottom a:hover {
+  color: var(--gold-light);
+}
+
+/* 13. SHARED PAGE HEADERS */
+
+.page-hero {
+  position: relative;
+  display: flex;
+  min-height: 370px;
+  align-items: center;
+  overflow: hidden;
+  padding: 70px 10%;
+  background: var(--ink);
+  color: var(--white);
+}
+
+.page-hero::before {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(13, 28, 24, 0.86), rgba(13, 28, 24, 0.3)),
+    url("https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1800&q=85") center 50% / cover;
+  content: "";
+}
+
+.page-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 780px;
+}
+
+.page-hero h1 {
+  font-size: clamp(3.2rem, 6vw, 5.8rem);
+}
+
+.page-hero h1 em {
+  color: var(--gold-light);
+}
+
+.page-hero p:not(.eyebrow) {
+  max-width: 540px;
+  margin-top: 18px;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+/* 14. ROOMS PAGE */
+
+.rooms-page-intro {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 90px 30px 55px;
+  text-align: center;
+}
+
+.rooms-page-intro h2 {
+  margin-bottom: 20px;
+}
+
+.rooms-page-intro > p:last-child {
+  color: var(--muted);
+}
+
+.rooms-list {
+  display: grid;
+  gap: 55px;
+  padding: 0 7% 110px;
+}
+
+.rooms-list .room-detail {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  gap: clamp(30px, 6vw, 90px);
+}
+
+.rooms-list .room-detail:nth-child(even) .room-detail-image {
+  order: 2;
+}
+
+.room-detail-image {
+  position: relative;
+  overflow: hidden;
+  background: #E5E0D5;
+}
+
+.room-detail-image img {
+  height: 460px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.room-detail-image:hover img {
+  transform: scale(1.035);
+}
+
+.room-detail-content {
+  max-width: 510px;
+  padding: 30px 0;
+}
+
+.room-detail-content h2 {
+  margin-bottom: 18px;
+}
+
+.room-detail-content > p:not(.eyebrow) {
+  margin-bottom: 22px;
+  color: var(--muted);
+  line-height: 2;
+}
+
+.room-amenities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 25px 0;
+}
+
+.room-amenities span {
+  padding: 8px 11px;
+  border: 1px solid var(--line);
+  font-size: 10px;
+}
+
+.room-detail-price {
+  margin: 22px 0;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.room-detail-price strong {
+  color: var(--ink);
+  font-size: 23px;
+}
+
+/* 15. BOOKING PAGE */
+
+.booking-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  align-items: start;
+  gap: 45px;
+  padding: 85px 7% 110px;
+}
+
+.booking-form-card,
+.booking-summary-card {
+  padding: clamp(25px, 4vw, 45px);
+  border: 1px solid var(--line);
+  background: #FFFEFA;
+}
+
+.booking-form-card h2,
+.booking-summary-card h2 {
+  margin-bottom: 12px;
+  font-size: clamp(2rem, 3vw, 2.8rem);
+}
+
+.booking-form-card > p,
+.booking-summary-card > p {
+  margin-bottom: 30px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.form-section-title {
+  margin: 30px 0 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--serif);
+  font-size: 21px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.form-field {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.form-field.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-field label {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  min-height: 50px;
+  padding: 12px 13px;
+  border: 1px solid #DCD7CB;
+  border-radius: 0;
+  background: #FFFFFF;
+  color: var(--ink);
+  font-size: 12px;
+}
+
+.form-field textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: var(--gold);
+  outline: 1px solid var(--gold);
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: #A0A097;
+}
+
+.booking-submit {
+  width: 100%;
+  margin-top: 15px;
+  border: 0;
+  background: var(--ink);
+  color: var(--white);
+  cursor: pointer;
+}
+
+.booking-submit:hover {
+  background: var(--ink-soft);
+}
+
+.booking-submit:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.booking-summary-card {
+  position: sticky;
+  top: 120px;
+}
+
+.booking-summary-image {
+  width: 100%;
+  height: 210px;
+  margin-bottom: 25px;
+  object-fit: cover;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 12px;
+}
+
+.summary-row span:first-child {
+  color: var(--muted);
+}
+
+.summary-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 20px;
+  padding-top: 10px;
+}
+
+.summary-total span {
+  font-size: 12px;
+}
+
+.summary-total strong {
+  font-family: var(--serif);
+  font-size: 28px;
+}
+
+.booking-note {
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+.form-message {
+  margin-top: 15px;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.form-message:empty {
+  display: none;
+}
+
+.form-message.success {
+  color: #287047;
+}
+
+.form-message.error {
+  color: #A33131;
+}
+
+.form-message.info {
+  color: #755B2D;
+}
+
+/* 16. ANIMATIONS */
+
+@keyframes hero-reveal {
+  from {
+    opacity: 0.65;
+    transform: scale(1.04);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes content-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 17. TABLET RESPONSIVENESS */
+
+@media (max-width: 1050px) {
+  .site-header {
+    padding-inline: 5%;
+  }
+
+  .main-nav {
+    gap: 20px;
+  }
+
+  .main-nav > a {
+    font-size: 11px;
+  }
+
+  .welcome {
+    grid-template-columns: 0.5fr 1fr 1fr;
+    gap: 28px;
+  }
+
+  .welcome-image {
+    height: 340px;
+  }
+
+  .room-grid {
+    gap: 18px;
+  }
+
+  .room-image-link img {
+    height: 280px;
+  }
+
+  .experience-content {
+    padding: 65px 7%;
+  }
+
+  .rooms-list .room-detail {
+    gap: 35px;
+  }
+
+  .room-detail-image img {
+    height: 380px;
+  }
+
+  .booking-layout {
+    gap: 25px;
+  }
+}
+
+/* 18. MOBILE NAVIGATION AND LAYOUT */
+
+@media (max-width: 760px) {
+  :root {
+    --header-height: 78px;
+  }
+
+  html {
+    scroll-padding-top: 88px;
+  }
+
+  body {
+    padding-top: 78px;
+  }
+
+  .container {
+    width: calc(100% - 36px);
+  }
+
+  .section-padding {
+    padding: 75px 6%;
+  }
+
+  .site-header {
+    min-height: 78px;
+    padding: 12px 6%;
+  }
+
+  .brand {
+    font-size: 31px;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  /* Hide the mobile menu until the button is clicked. */
+  .main-nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    z-index: 1001;
+
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+
+    width: 100%;
+    max-height: calc(100vh - 78px);
+    overflow-y: auto;
+
+    padding: 12px 6% 24px;
+    border-top: 1px solid var(--line);
+    background: var(--ivory);
+    box-shadow: 0 18px 30px rgba(0, 0, 0, 0.08);
+  }
+
+  /* IMPORTANT: matches the JavaScript's active class. */
+  .main-nav.active,
+  .main-nav.is-open {
+    display: flex;
+  }
+
+  .main-nav > a {
+    display: block;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 13px;
+  }
+
+  .main-nav > a::after {
+    display: none;
+  }
+
+  .main-nav .nav-book {
+    margin-top: 12px;
+    padding: 15px;
+    text-align: center;
+  }
+
+  .hero {
+    min-height: 680px;
+    min-height: 82svh;
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(90deg, rgba(12, 24, 21, 0.72), rgba(12, 24, 21, 0.28)),
+      linear-gradient(0deg, rgba(12, 24, 21, 0.48), transparent 70%);
+  }
+
+  .hero-content {
+    width: 100%;
+    padding: 55px 22px;
+  }
+
+  .hero h1 {
+    font-size: clamp(3.2rem, 12vw, 5rem);
+  }
+
+  .hero-description {
+    max-width: 360px;
+    font-size: 13px;
+  }
+
+  .hero-actions {
+    gap: 18px;
+  }
+
+  .hero-bottom {
+    right: 6%;
+    left: 6%;
+    font-size: 8px;
+  }
+
+  .hero-vertical {
+    right: 10px;
+  }
+
+  .welcome {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .welcome-label {
+    padding: 0;
+  }
+
+  .welcome-content h2 {
+    font-size: clamp(2.8rem, 9vw, 4rem);
+  }
+
+  .welcome-image-wrap {
+    margin-top: 10px;
+  }
+
+  .welcome-image {
+    height: 340px;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 22px;
+    margin-bottom: 35px;
+  }
+
+  .section-heading h2 {
+    font-size: clamp(2.5rem, 8vw, 3.5rem);
+  }
+
+  .room-grid {
+    grid-template-columns: 1fr;
+    gap: 38px;
+  }
+
+  .room-image-link img {
+    height: clamp(260px, 75vw, 410px);
+  }
+
+  .experience-section {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-image {
+    min-height: 360px;
+  }
+
+  .experience-content {
+    padding: 70px 7%;
+  }
+
+  .experience-content h2 {
+    font-size: clamp(2.6rem, 8vw, 3.7rem);
+  }
+
+  .quote-section blockquote {
+    font-size: clamp(2rem, 7vw, 3rem);
+  }
+
+  .booking-banner {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 65px 7%;
+  }
+
+  .booking-banner h2 {
+    font-size: clamp(2.4rem, 8vw, 3.5rem);
+  }
+
+  .footer-main {
+    flex-wrap: wrap;
+    gap: 35px;
+    padding-bottom: 40px;
+  }
+
+  .footer-main > * {
+    flex: 1 1 40%;
+  }
+
+  .footer-bottom {
+    flex-wrap: wrap;
+    font-size: 8px;
+  }
+
+  .page-hero {
+    min-height: 330px;
+    padding: 60px 7%;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(3rem, 10vw, 4.5rem);
+  }
+
+  .rooms-page-intro {
+    padding: 65px 7% 40px;
+  }
+
+  .rooms-list {
+    gap: 45px;
+    padding: 0 6% 75px;
+  }
+
+  .rooms-list .room-detail {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .rooms-list .room-detail:nth-child(even) .room-detail-image {
+    order: 0;
+  }
+
+  .room-detail-image img {
+    height: clamp(260px, 75vw, 400px);
+  }
+
+  .room-detail-content {
+    padding: 10px 0;
+  }
+
+  .room-detail-content h2 {
+    font-size: 2.5rem;
+  }
+
+  .booking-layout {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 55px 5% 75px;
+  }
+
+  .booking-form-card,
+  .booking-summary-card {
+    padding: 25px 20px;
+  }
+
+  .booking-summary-card {
+    position: static;
+  }
+
+  .booking-summary-image {
+    height: 240px;
+  }
+}
+
+/* 19. SMALL MOBILE SCREENS */
+
+@media (max-width: 420px) {
+  body {
+    font-size: 14px;
+  }
+
+  .hero h1 {
+    font-size: 3.15rem;
+  }
+
+  .hero-actions {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .hero-bottom span:first-child {
+    max-width: 210px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .form-field.full-width {
+    grid-column: auto;
+  }
+
+  .footer-main {
+    flex-direction: column;
+  }
+
+  .footer-main > * {
+    flex: auto;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .button {
+    gap: 15px;
+    padding-inline: 17px;
+  }
+}
+
+/* 20. REDUCED MOTION ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =========================================
+   ÉLAN RESORT — MODERN ROOM MODAL
+   Add this at the VERY BOTTOM of style.css
+========================================= */
+
+.room-modal {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 99999 !important;
+
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+  padding: 24px;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  background: transparent;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.room-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Dark blurred background */
+
+.room-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  background: rgba(8, 17, 14, 0.78);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+
+  cursor: pointer;
+}
+
+/* Main modal card */
+
+.room-modal-content {
+  position: relative;
+  z-index: 1;
+
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+
+  width: min(960px, 100%);
+  max-height: min(680px, calc(100dvh - 48px));
+
+  overflow: auto;
+  overscroll-behavior: contain;
+
+  background: var(--ivory, #F8F6F0);
+  color: var(--ink, #172321);
+
+  border: 1px solid rgba(198, 164, 106, 0.45);
+  border-radius: 5px;
+
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.35);
+
+  opacity: 0;
+  transform: translateY(24px) scale(0.98);
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+.room-modal.is-open .room-modal-content {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Room photograph */
+
+.room-modal-content > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 440px;
+  object-fit: cover;
+  background: #e8e3d9;
+}
+
+/* Text content */
+
+.room-modal-info {
+  align-self: center;
+  padding: clamp(28px, 4vw, 56px);
+}
+
+.room-modal-info .room-category {
+  margin: 0 0 18px;
+
+  color: #927344;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  line-height: 1.7;
+  text-transform: uppercase;
+}
+
+.room-modal-info h2 {
+  margin: 0 0 20px;
+
+  color: var(--ink, #172321);
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  font-weight: 400;
+  line-height: 1.12;
+}
+
+.room-modal-info #modalRoomDescription {
+  margin: 0 0 24px;
+
+  color: #626b65;
+  font-size: 0.95rem;
+  line-height: 1.9;
+}
+
+.room-modal-info .room-price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+
+  margin: 0 0 26px;
+
+  color: var(--ink, #172321);
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.room-modal-info .room-price span:last-child {
+  color: #727970;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+/* Gold booking button */
+
+.room-book-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+
+  min-height: 52px;
+  padding: 15px 23px;
+
+  border: 1px solid var(--gold, #C6A46A);
+  background: var(--gold, #C6A46A);
+  color: var(--ink, #172321);
+
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.room-book-btn:hover {
+  background: var(--ink, #172321);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.room-book-btn:focus-visible,
+.room-modal-close:focus-visible {
+  outline: 3px solid #927344;
+  outline-offset: 4px;
+}
+
+/* Close button */
+
+.room-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 5;
+
+  display: grid;
+  place-items: center;
+
+  width: 44px;
+  height: 44px;
+
+  border: 1px solid rgba(23, 35, 33, 0.12);
+  border-radius: 50%;
+
+  background: var(--ivory, #F8F6F0);
+  color: var(--ink, #172321);
+
+  font-family: Arial, sans-serif;
+  font-size: 28px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.room-modal-close:hover {
+  background: var(--ink, #172321);
+  color: #fff;
+  transform: rotate(90deg);
+}
+
+/* Prevent background scrolling */
+
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Tablet and mobile */
+
+@media (max-width: 700px) {
+  .room-modal {
+    padding: 14px;
+  }
+
+  .room-modal-content {
+    grid-template-columns: 1fr;
+    width: min(480px, 100%);
+    max-height: calc(100dvh - 28px);
+    max-height: calc(100vh - 28px);
+    max-height: calc(100dvh - 28px);
+  }
+
+  .room-modal-content > img {
+    width: 100%;
+    height: clamp(190px, 30vh, 270px);
+    min-height: 0;
+  }
+
+  .room-modal-info {
+    padding: 26px 24px 30px;
+  }
+
+  .room-modal-info h2 {
+    padding-right: 18px;
+    font-size: 2rem;
+  }
+
+  .room-modal-info #modalRoomDescription {
+    font-size: 0.9rem;
+  }
+
+  .room-modal-close {
+    top: 10px;
+    right: 10px;
+  }
+
+  .room-book-btn {
+    width: 100%;
+  }
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+  .room-modal,
+  .room-modal-content,
+  .room-modal-close,
+  .room-book-btn {
+    transition: none;
+  }
+}

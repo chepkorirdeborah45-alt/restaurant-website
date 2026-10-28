@@ -1,0 +1,544 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Discover ÉLAN Resort, a luxury escape designed for extraordinary stays, thoughtful hospitality, and unforgettable experiences."
+  >
+
+  <meta name="theme-color" content="#172321">
+
+  <title>ÉLAN Resort | A Stay Beyond Ordinary</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Main JavaScript -->
+  <script src="script.js" defer></script>
+</head>
+
+<body id="top">
+
+  <!-- =====================================
+       NAVIGATION
+  ====================================== -->
+  <header class="site-header">
+
+    <a
+      href="index.html"
+      class="brand"
+      aria-label="ÉLAN Resort homepage"
+    >
+      ÉLAN
+    </a>
+
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      type="button"
+      aria-label="Open navigation"
+      aria-expanded="false"
+      aria-controls="mainNav"
+    >
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+      <a class="active" href="index.html" aria-current="page">Home</a>
+      
+      <a href="#experience">Experience</a>
+      <a href="#about">Our Story</a>
+       <a href="room.html">Our Rooms</a>
+      
+
+      <a href="booking.html" class="nav-book">
+        Reserve Your Stay <span aria-hidden="true">↗</span>
+      </a>
+    </nav>
+
+  </header>
+
+  <main>
+
+    <!-- =====================================
+         HERO SECTION
+    ====================================== -->
+    <section class="hero" aria-labelledby="hero-title">
+
+      <div class="hero-image" aria-hidden="true"></div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+
+      <div class="hero-content">
+
+        <p class="eyebrow light-eyebrow">
+          <span aria-hidden="true"></span>
+          A WORLD APART
+        </p>
+
+        <h1 id="hero-title">
+          A stay beyond<br>
+          the <em>ordinary.</em>
+        </h1>
+
+        <p class="hero-description">
+          Find your own rhythm in a place where considered
+          luxury meets the beauty of getting away.
+        </p>
+
+        <div class="hero-actions">
+
+          <a href="room.html" class="button button-gold">
+            Discover Our Rooms
+            <span aria-hidden="true">↗</span>
+          </a>
+
+          <a href="#about" class="text-link">
+            Explore ÉLAN
+            <span aria-hidden="true">↓</span>
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="hero-vertical" aria-hidden="true">
+        EXCEPTIONAL BY NATURE
+      </div>
+
+    </section>
+
+
+    <!-- =====================================
+         WELCOME / ABOUT SECTION
+    ====================================== -->
+    <section class="welcome section-padding" id="about">
+
+      <div class="welcome-label">
+        <span class="section-number">01 / THE ÉLAN EXPERIENCE</span>
+      </div>
+
+      <div class="welcome-content">
+
+        <p class="eyebrow">MORE THAN A DESTINATION</p>
+
+        <h2>
+          Some places stay<br>
+          with you <em>forever.</em>
+        </h2>
+
+        <p class="body-copy">
+          At ÉLAN, every detail is an invitation to slow down.
+          From thoughtfully designed spaces to moments of
+          effortless hospitality, we create experiences that
+          feel personal, peaceful and entirely your own.
+        </p>
+
+        <a href="room.html" class="underlined-link">
+          Discover our world
+          <span aria-hidden="true">↗</span>
+        </a>
+
+      </div>
+
+      <div class="welcome-image-wrap">
+
+        <img
+          src="images/img2.jpg"
+          alt="Luxury resort pool surrounded by tropical greenery"
+          class="welcome-image"
+          loading="lazy"
+        >
+
+        <div class="image-caption">
+          <span>01</span>
+          <span>SPACE TO SIMPLY BE</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================
+         FEATURED ROOMS
+    ====================================== -->
+    <section class="rooms-section section-padding" id="rooms">
+
+      <div class="section-heading">
+
+        <div>
+          <p class="eyebrow">YOUR NEXT CHAPTER</p>
+          <h2>Rooms with a <em>sense of place.</em></h2>
+        </div>
+
+        <a href="room.html" class="underlined-link">
+          View all rooms
+          <span aria-hidden="true">↗</span>
+        </a>
+
+      </div>
+
+
+      <div class="room-grid">
+
+        <!-- ROOM 1 -->
+        <article
+          class="room-card"
+          data-name="Classic Retreat"
+          data-price="4500"
+          data-image="images/room1.jpg"
+          data-description="Thoughtful comfort and beautiful simplicity. Enjoy a relaxing stay in an elegant room designed for comfort and peaceful moments."
+        >
+
+          <div class="room-image-link">
+
+            <img
+              src="images/room1.jpg"
+              alt="Elegant bedroom for the Classic Retreat"
+              loading="lazy"
+            >
+
+            <span class="room-tag">01 / THE ESSENTIAL</span>
+
+          </div>
+
+          <div class="room-card-info">
+
+            <div>
+              <h3>Classic Retreat</h3>
+              <p>Thoughtful comfort. Beautiful simplicity.</p>
+            </div>
+
+            <button
+              class="room-details-btn"
+              type="button"
+              aria-label="View details for Classic Retreat"
+            >
+              View Details <span aria-hidden="true">↗</span>
+            </button>
+
+          </div>
+
+          <p class="room-price">
+            From <strong>KSh 4,500</strong>
+            <span>/ night</span>
+          </p>
+
+        </article>
+
+
+        <!-- ROOM 2 -->
+        <article
+          class="room-card room-card-featured"
+          data-name="Serenity Double"
+          data-price="7500"
+          data-image="images/room2.jpg"
+          data-description="Room to unwind and reconnect. Experience a spacious double room with a calm atmosphere and carefully considered details."
+        >
+
+          <div class="room-image-link">
+
+            <img
+              src="images/room2.jpg"
+              alt="Spacious and serene Serenity Double room"
+              loading="lazy"
+            >
+
+            <span class="room-tag">02 / THE SIGNATURE</span>
+
+          </div>
+
+          <div class="room-card-info">
+
+            <div>
+              <h3>Serenity Double</h3>
+              <p>Room to unwind, room to reconnect.</p>
+            </div>
+
+            <button
+              class="room-details-btn"
+              type="button"
+              aria-label="View details for Serenity Double"
+            >
+              View Details <span aria-hidden="true">↗</span>
+            </button>
+
+          </div>
+
+          <p class="room-price">
+            From <strong>KSh 7,500</strong>
+            <span>/ night</span>
+          </p>
+
+        </article>
+
+
+        <!-- ROOM 3 -->
+        <article
+          class="room-card"
+          data-name="The Élan Suite"
+          data-price="12000"
+          data-image="images/room3.jpg"
+          data-description="Elevated living with a little more space. Discover a refined suite designed for guests who appreciate extra comfort and a distinctive stay."
+        >
+
+          <div class="room-image-link">
+
+            <img
+              src="images/suiteroom.jpg"
+              alt="Elegant interior of the Élan Suite"
+              loading="lazy"
+            >
+
+            <span class="room-tag">03 / THE EXCEPTIONAL</span>
+
+          </div>
+
+          <div class="room-card-info">
+
+            <div>
+              <h3>The Élan Suite</h3>
+              <p>Elevated living with a little more space.</p>
+            </div>
+
+            <button
+              class="room-details-btn"
+              type="button"
+              aria-label="View details for the Élan Suite"
+            >
+              View Details <span aria-hidden="true">↗</span>
+            </button>
+
+          </div>
+
+          <p class="room-price">
+            From <strong>KSh 12,000</strong>
+            <span>/ night</span>
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================
+         EXPERIENCE SECTION
+    ====================================== -->
+    <section class="experience-section" id="experience">
+
+      <div class="experience-image" aria-hidden="true"></div>
+
+      <div class="experience-content">
+
+        <p class="eyebrow light-eyebrow">
+          02 / THE LITTLE THINGS
+        </p>
+
+        <h2>
+          Luxury is a feeling.<br>
+          <em>Not a checklist.</em>
+        </h2>
+
+        <p>
+          Unhurried mornings. Considered details. Space to breathe.
+          Discover a stay shaped around how you want to feel.
+        </p>
+
+        <div class="experience-features">
+
+          <div>
+            <span>01</span>
+            <p>Thoughtful hospitality</p>
+          </div>
+
+          <div>
+            <span>02</span>
+            <p>Spaces made for rest</p>
+          </div>
+
+          <div>
+            <span>03</span>
+            <p>Moments worth keeping</p>
+          </div>
+
+        </div>
+
+        <a href="booking.html" class="button button-outline">
+          Plan Your Escape
+          <span aria-hidden="true">↗</span>
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================
+         QUOTE SECTION
+    ====================================== -->
+    <section class="quote-section section-padding">
+
+      <p class="eyebrow">A DIFFERENT KIND OF GETAWAY</p>
+
+      <blockquote>
+        “The best journeys take us away from the everyday
+        and closer to what matters.”
+      </blockquote>
+
+      <span class="quote-mark" aria-hidden="true">É</span>
+
+    </section>
+
+
+    <!-- =====================================
+         BOOKING BANNER
+    ====================================== -->
+    <section class="booking-banner">
+
+      <div>
+        <p class="eyebrow light-eyebrow">YOUR ROOM IS WAITING</p>
+
+        <h2>
+          Make room for <em>something wonderful.</em>
+        </h2>
+      </div>
+
+      <a href="booking.html" class="button button-gold">
+        Reserve Your Stay
+        <span aria-hidden="true">↗</span>
+      </a>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================
+       ROOM DETAILS MODAL
+  ====================================== -->
+  <div
+    class="room-modal"
+    id="roomModal"
+    aria-hidden="true"
+    inert
+  >
+
+    <div
+      class="room-modal-backdrop"
+      data-close-modal
+    ></div>
+
+    <div
+      class="room-modal-content"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalRoomName"
+      aria-describedby="modalRoomDescription"
+      tabindex="-1"
+    >
+
+      <button
+        class="room-modal-close"
+        type="button"
+        aria-label="Close room details"
+        data-close-modal
+      >
+        &times;
+      </button>
+
+      <img
+        id="modalRoomImage"
+        src=""
+        alt=""
+      >
+
+      <div class="room-modal-info">
+
+        <p class="room-category">ÉLAN RESORT ACCOMMODATION</p>
+
+        <h2 id="modalRoomName"></h2>
+
+        <p id="modalRoomDescription"></p>
+
+        <p class="room-price">
+          <span id="modalRoomPrice"></span>
+          <span>/ night</span>
+        </p>
+
+        <a
+          id="modalBookButton"
+          href="booking.html"
+          class="room-book-btn"
+        >
+          Reserve This Room
+          <span aria-hidden="true">↗</span>
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================
+       FOOTER
+  ====================================== -->
+  <footer class="site-footer">
+
+    <div class="footer-main">
+
+      <a href="index.html" class="brand footer-brand">
+        ÉLAN<span>.</span>
+        <small>THE ART OF ESCAPE</small>
+      </a>
+
+      <p>
+        For the moments that<br>
+        deserve a little more.
+      </p>
+
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="room.html">Our Rooms</a>
+        
+        <a href="booking.html">Reservations</a>
+      </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <span>
+        &copy; <span id="currentYear"></span> ÉLAN Resort
+      </span>
+
+      <span>MADE FOR THE ART OF GETTING AWAY</span>
+
+      <a href="#top">
+        Back to top ↑
+      </a>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>

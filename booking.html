@@ -1,0 +1,432 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Reserve Your Stay | ÉLAN Resort</title>
+  <meta
+    name="description"
+    content="Reserve your luxury stay at ÉLAN Resort. Choose your room, dates and guests for a relaxing getaway."
+  >
+
+  <meta name="theme-color" content="#0B2119">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="booking.css">
+
+  <script src="booking.js" defer></script>
+</head>
+
+<body class="booking-page">
+
+  <!-- HEADER AND MOBILE NAVIGATION -->
+  <header class="booking-header">
+
+    <a href="index.html" class="booking-brand" aria-label="ÉLAN Resort home">
+      <span class="booking-brand-name">ÉLAN</span>
+      <span class="booking-brand-subtitle">LUXURY RESORT</span>
+    </a>
+
+    <button
+      class="booking-menu-toggle"
+      id="bookingMenuToggle"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-controls="bookingNavigation"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav
+      class="booking-navigation"
+      id="bookingNavigation"
+      aria-label="Main navigation"
+    >
+      <a href="index.html">Home</a>
+      <a href="index.html#rooms">Our Rooms</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="index.html#rooms" class="booking-mobile-cta">
+        Explore Rooms <span aria-hidden="true">↗</span>
+      </a>
+    </nav>
+
+    <a href="index.html#rooms" class="booking-header-link">
+      Explore Rooms <span aria-hidden="true">↗</span>
+    </a>
+
+  </header>
+
+  <main>
+
+    <!-- PAGE INTRODUCTION -->
+    <section class="booking-hero">
+      <div class="booking-hero-overlay"></div>
+
+      <div class="booking-hero-content">
+        <p class="booking-eyebrow">
+          YOUR NEXT ESCAPE BEGINS HERE
+        </p>
+
+        <h1>Reserve Your <em>Stay</em></h1>
+
+        <p>
+          Thoughtfully designed spaces, exceptional comfort,
+          and moments worth remembering.
+        </p>
+
+        <div class="booking-hero-line"></div>
+      </div>
+    </section>
+
+    <!-- BOOKING SECTION -->
+    <section class="booking-section" id="reservation">
+
+      <div class="booking-introduction">
+        <p class="booking-eyebrow">A STAY TO REMEMBER</p>
+
+        <h2>Make yourself <em>at home.</em></h2>
+
+        <p>
+          Choose your dates, personalise your stay, and let us
+          help you plan a more memorable escape.
+        </p>
+      </div>
+
+      <div class="booking-layout">
+
+        <!-- BOOKING FORM -->
+        <div class="booking-form-card">
+
+          <div class="booking-form-heading">
+            <div>
+              <span class="booking-step">01 / YOUR STAY</span>
+              <h3>Stay details</h3>
+            </div>
+
+            <span class="booking-heading-icon" aria-hidden="true">✳</span>
+          </div>
+
+          <form id="bookingForm">
+
+            <!-- ROOM -->
+            <div class="booking-field booking-field-full">
+              <label for="roomType">Choose your room</label>
+
+              <select id="roomType" name="roomType" required>
+                <option value="Classic Retreat">
+                  Classic Retreat — KSh 4,500 / night
+                </option>
+                <option value="Serenity Double">
+                  Serenity Double — KSh 7,500 / night
+                </option>
+                <option value="The Élan Suite">
+                  The Élan Suite — KSh 12,000 / night
+                </option>
+              </select>
+
+              <small class="booking-field-hint">
+                Select the accommodation that suits your stay.
+              </small>
+            </div>
+
+            <!-- DATES -->
+            <div class="booking-form-grid">
+
+              <div class="booking-field">
+                <label for="checkIn">Check-in</label>
+                <input
+                  type="date"
+                  id="checkIn"
+                  name="checkIn"
+                  required
+                >
+                <small>Arrival date</small>
+              </div>
+
+              <div class="booking-field">
+                <label for="checkOut">Check-out</label>
+                <input
+                  type="date"
+                  id="checkOut"
+                  name="checkOut"
+                  required
+                >
+                <small>Departure date</small>
+              </div>
+
+            </div>
+
+            <!-- GUESTS -->
+            <div class="booking-form-grid">
+
+              <div class="booking-field">
+                <label for="adults">Adults</label>
+
+                <select id="adults" name="adults" required>
+                  <option value="1">1 Adult</option>
+                  <option value="2" selected>2 Adults</option>
+                  <option value="3">3 Adults</option>
+                  <option value="4">4 Adults</option>
+                </select>
+              </div>
+
+              <div class="booking-field">
+                <label for="children">Children</label>
+
+                <select id="children" name="children">
+                  <option value="0" selected>0 Children</option>
+                  <option value="1">1 Child</option>
+                  <option value="2">2 Children</option>
+                  <option value="3">3 Children</option>
+                </select>
+              </div>
+
+            </div>
+
+            <!-- GUEST INFORMATION -->
+            <div class="booking-form-heading booking-guest-heading">
+              <div>
+                <span class="booking-step">02 / YOUR INFORMATION</span>
+                <h3>Guest details</h3>
+              </div>
+            </div>
+
+            <div class="booking-form-grid">
+
+              <div class="booking-field">
+                <label for="guestName">Full name</label>
+                <input
+                  type="text"
+                  id="guestName"
+                  name="guestName"
+                  placeholder="Your full name"
+                  autocomplete="name"
+                  required
+                >
+              </div>
+
+              <div class="booking-field">
+                <label for="guestEmail">Email address</label>
+                <input
+                  type="email"
+                  id="guestEmail"
+                  name="guestEmail"
+                  placeholder="you@example.com"
+                  autocomplete="email"
+                  required
+                >
+              </div>
+
+            </div>
+
+            <div class="booking-field booking-field-full">
+              <label for="guestPhone">Phone number</label>
+
+              <input
+                type="tel"
+                id="guestPhone"
+                name="guestPhone"
+                placeholder="Enter your phone number"
+                autocomplete="tel"
+                required
+              >
+            </div>
+
+            <div class="booking-field booking-field-full">
+              <label for="specialRequests">
+                Special requests
+                <span class="booking-optional">(optional)</span>
+              </label>
+
+              <textarea
+                id="specialRequests"
+                name="specialRequests"
+                rows="4"
+                placeholder="Tell us about any preferences for your stay..."
+              ></textarea>
+            </div>
+
+            <!-- MOBILE PRICE SUMMARY -->
+            <div class="booking-mobile-summary">
+              <span>Estimated total</span>
+              <strong id="mobileTotal">KSh 4,500</strong>
+            </div>
+
+            <button type="submit" class="booking-submit-btn">
+              Request Reservation
+              <span aria-hidden="true">↗</span>
+            </button>
+
+            <p class="booking-form-note">
+              Your reservation request is not confirmed until
+              availability and booking details are verified.
+            </p>
+
+          </form>
+
+          <!-- CONFIRMATION MESSAGE -->
+          <div
+            id="bookingConfirmation"
+            class="booking-confirmation"
+            role="status"
+            aria-live="polite"
+            hidden
+          >
+            <div class="booking-confirmation-icon" aria-hidden="true">✓</div>
+
+            <h3>Request prepared</h3>
+
+            <p id="confirmationMessage"></p>
+
+            <button
+              type="button"
+              id="editBooking"
+              class="booking-edit-btn"
+            >
+              Return to booking form
+            </button>
+          </div>
+
+        </div>
+
+        <!-- STAY SUMMARY -->
+        <aside class="booking-summary-card">
+
+          <div class="booking-summary-image-wrap">
+            <img
+              id="summaryImage"
+              src="images/room1.jpg"
+              alt="Classic Retreat accommodation"
+              class="booking-summary-image"
+            >
+
+            <span class="booking-image-label">
+              ÉLAN SIGNATURE STAYS
+            </span>
+          </div>
+
+          <div class="booking-summary-content">
+
+            <p class="booking-eyebrow">YOUR SELECTED ROOM</p>
+
+            <h3 id="summaryRoomName">Classic Retreat</h3>
+
+            <p id="summaryDescription" class="booking-summary-description">
+              Thoughtful comfort and beautiful simplicity.
+              Enjoy an elegant room designed for peaceful moments.
+            </p>
+
+            <div class="booking-summary-divider"></div>
+
+            <div class="booking-price-row">
+              <span>Price per night</span>
+              <strong id="summaryPrice">KSh 4,500</strong>
+            </div>
+
+            <div class="booking-price-row">
+              <span>Length of stay</span>
+              <strong id="summaryNights">1 night</strong>
+            </div>
+
+            <div class="booking-price-row">
+              <span>Guests</span>
+              <strong id="summaryGuests">2 adults</strong>
+            </div>
+
+            <div class="booking-summary-divider"></div>
+
+            <div class="booking-total-row">
+              <div>
+                <span>Estimated total</span>
+                <small id="summaryTotalNote">1 night</small>
+              </div>
+
+              <strong id="summaryTotal">KSh 4,500</strong>
+            </div>
+
+            <p class="booking-summary-disclaimer">
+              This estimate excludes any additional services or
+              charges that may apply. Availability has not yet
+              been verified.
+            </p>
+
+            <div class="booking-trust-note">
+              <span aria-hidden="true">✧</span>
+
+              <p>
+                <strong>A more personal stay.</strong>
+                <br>
+                Every detail matters at ÉLAN Resort.
+              </p>
+            </div>
+
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- CLOSING BANNER -->
+    <section class="booking-bottom-banner">
+      <p class="booking-eyebrow">THE ÉLAN EXPERIENCE</p>
+
+      <h2>Arrive. Unwind. <em>Reconnect.</em></h2>
+
+      <a href="index.html" class="booking-back-link">
+        Return to the resort <span aria-hidden="true">↗</span>
+      </a>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="booking-footer">
+
+    <div class="booking-footer-branding">
+      <a href="index.html" class="booking-footer-brand">
+        ÉLAN RESORT
+      </a>
+
+      <p>Thoughtfully designed for your escape.</p>
+    </div>
+
+    <div class="booking-footer-contact">
+      <h3>Contact Us</h3>
+
+      <a
+        href="https://wa.me/254795692365?text=Hello%20%C3%89LAN%20Resort!%20I%20would%20like%20to%20enquire%20about%20booking%20a%20room."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="booking-whatsapp-btn"
+        aria-label="Contact ÉLAN Resort on WhatsApp"
+      >
+        <span aria-hidden="true">💬</span>
+        Chat on WhatsApp
+      </a>
+
+      <p class="booking-contact-number">+254 795 692 365</p>
+    </div>
+
+    <div class="booking-footer-bottom">
+      <p>
+        © <span id="bookingYear"></span>
+        ÉLAN Resort. All rights reserved.
+      </p>
+    </div>
+
+  </footer>
+
+</body>
+</html>
